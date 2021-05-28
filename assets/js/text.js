@@ -20,8 +20,8 @@ $(function () {
 });
 $(function () {
     $(".typed").typed({
-        strings: ["d3ntly", "C/C++ developer", "Coder", "Shell script", "Hacker", "Hmmm...", "..."],
-        typeSpeed: 100,
+        strings: ["Shell script", "hacker", "C++ developer", "bruh"],
+        typeSpeed: 50,
         loop: true,
         cursorChar: "|",
     });
