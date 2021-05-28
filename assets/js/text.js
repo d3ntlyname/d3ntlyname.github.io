@@ -23,6 +23,6 @@ $(function () {
         strings: ["C/C++ developer", "Hacker", "Coder", "Hmmm...", "...", "Bruh"],
         typeSpeed: 50,
         loop: true,
-        cursorChar: "|",
+        cursorChar: "_",
     });
 });
