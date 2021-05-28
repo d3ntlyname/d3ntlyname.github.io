@@ -20,9 +20,9 @@ $(function () {
 });
 $(function () {
     $(".typed").typed({
-        strings: ["C/C++ developer", "Hacker", "Coder", "Hmmm...", "...", "Bruh"],
+        strings: ["C/C++ developer", "hacker", "coder", "hmmm...", "...", "bruh"],
         typeSpeed: 50,
         loop: true,
-        cursorChar: "_",
+        cursorChar: "|",
     });
 });
