@@ -109,4 +109,14 @@ class FiltersMod(loader.Module):
                         await self.exec_comm(msg, message, pref) 
                 else: 
                     if _.lower() in m: 
-                        await self.exec_comm(msg, mess
+                        await self.exec_comm(msg, message, pref) 
+        except: pass 
+ 
+    async def exec_comm(self, msg, message, pref): 
+        try: 
+            if msg.text[0] == pref: 
+                smsg = msg.text.split() 
+                return await self.allmodules.commands[smsg[0][1:]](await message.reply(smsg[0] +  ' '.join(_ for _ in smsg if len(smsg) > 1))) 
+            else: pass 
+        except: pass 
+        await message.reply(msg)
