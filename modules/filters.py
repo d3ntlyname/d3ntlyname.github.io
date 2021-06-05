@@ -1,3 +1,5 @@
+# t.me/dentlyftg
+
 from .. import loader, utils 
  
  
@@ -10,7 +12,7 @@ class FiltersMod(loader.Module):
         self.db = db 
  
     async def filtercmd(self, message): 
-        """Добавить фильтр в список.""" 
+        """Добавить фильтр в список""" 
         filters = self.db.get("Filters", "filters", {}) 
         key = utils.get_args_raw(message) # .lower() 
         reply = await message.get_reply_message()  
@@ -29,21 +31,21 @@ class FiltersMod(loader.Module):
             if key: 
                 msgid = await self.db.store_asset(reply) 
             else: 
-                return await message.edit("<b>Нужны аргументы, чтобы сохранить фильтр!</b>") 
+                return await message.edit("<b>Нужны аргументы, чтобы сохранить фильтр</b>") 
         else: 
             try: 
                 msgid = (await message.client.send_message(f'friendly-{(await message.client.get_me()).id}-assets', key.split(' / ')[1])).id 
                 key = key.split(' / ')[0] 
             except IndexError: 
-                return await message.edit("<b>Нужен второй аргумент (через /) или реплай.</b>") 
+                return await message.edit("<b>Нужен второй аргумент (через /) или реплай</b>") 
  
         filters[chatid].setdefault(key, msgid) 
         self.db.set("Filters", "filters", filters) 
-        await message.edit(f"<b>Фильтр \"{key}\" сохранён!</b>")  
+        await message.edit(f"<b>Фильтр \"{key}\" сохранён</b>")  
  
  
     async def stopcmd(self, message): 
-        """Удаляет фильтр из списка.""" 
+        """Удаляет фильтр из списка фильтров""" 
         filters = self.db.get("Filters", "filters", {}) 
         args = utils.get_args_raw(message) 
         chatid = str(message.chat_id) 
@@ -66,7 +68,7 @@ class FiltersMod(loader.Module):
  
  
     async def stopallcmd(self, message): 
-        """Удаляет все фильтры из списка чата.""" 
+        """Удаляет все фильтры из списка чата""" 
         filters = self.db.get("Filters", "filters", {}) 
         chatid = str(message.chat_id) 
   
@@ -79,7 +81,7 @@ class FiltersMod(loader.Module):
  
  
     async def filterscmd(self, message): 
-        """Показывает список фильтров чата.""" 
+        """Показывает список фильтров чата""" 
         filters = self.db.get("Filters", "filters", {}) 
         chatid = str(message.chat_id) 
  
@@ -88,7 +90,7 @@ class FiltersMod(loader.Module):
  
         msg = "" 
         for _ in filters[chatid]: 
-            msg += f"<b>• {_}</b>\n" 
+            msg += f"<b>➪ {_}</b>\n" 
         await message.edit(f"<b>Список фильтров в этом чате: {len(filters[chatid])}\n\n{msg}</b>")  
  
  
