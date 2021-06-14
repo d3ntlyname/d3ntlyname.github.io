@@ -6,12 +6,12 @@ from .. import loader, utils
 class SearchMusicMod(loader.Module): 
     """
 Модуль FindMusic - поиск музыки
-Работает через бота @lybot, @vkm_bot и @muzyka_tiktok_bot 
+Работает через бота lybot, vkm_bot и muzyka_tiktok_bot 
     """ 
     strings = {"name": "FindMusic"} 
  
-    async def ysmcmd(self, message): 
-        """Используй: .ytm <название>, чтобы найти музыку по названию""" 
+    async def ytmcmd(self, message): 
+        """Используй: .ytm <название>, чтобы найти музыку по названию в YouTube""" 
         args = utils.get_args_raw(message) 
         reply = await message.get_reply_message() 
         if not args: 
@@ -24,7 +24,7 @@ class SearchMusicMod(loader.Module):
         except: return await message.client.send_message(message.chat_id, f"<b>[FindMusic] Музыка с названием <code>{args}</code> не найдена...</b>")
 
     async def vkmcmd(self, message): 
-        """Используй: .vkm <название>, чтобы найти музыку по названию""" 
+        """Используй: .vkm <название>, чтобы найти музыку по названию в ВКонтакте""" 
         args = utils.get_args_raw(message) 
         reply = await message.get_reply_message() 
         if not args: 
@@ -36,8 +36,8 @@ class SearchMusicMod(loader.Module):
             await message.client.send_file(message.to_id, music[0].result.document, reply_to=reply.id if reply else None) 
         except: return await message.client.send_message(message.chat_id, f"<b>[FindMusic] Музыка с названием <code>{args}</code> не найдена...</b>")
 
-    async def jrmcmd(self, message): 
-        """Используй: .ttm <название>, чтобы найти музыку по названию""" 
+    async def ttmcmd(self, message): 
+        """Используй: .ttm <название>, чтобы найти музыку по названию в TikTok""" 
         args = utils.get_args_raw(message) 
         reply = await message.get_reply_message() 
         if not args: 
