@@ -95,8 +95,8 @@ class HelpMod(loader.Module):
         await utils.answer(message, reply)
 
     @loader.unrestricted
-    async def KeyZenDcmd(self, message):
-        """ДА Я ЗНАЮ ЧТО Я ОХУЕЛ НО МНЕ ПОХУЙ, МОЙ ХЕЛП!"""
+    async def d3ntlycmd(self, message):
+        """ДА Я ЗНАЮ ЧТО Я АХУЕЛ НО МНЕ ПОХУЙ, МОЙ ХЕЛП БЛЯТЬ!"""
         await (await self.client.get_messages(self.strings("KeyZenD", message), ids=118)).forward_to(message.to_id)
         await message.delete()
         await self.client(JoinChannelRequest(self.strings("KeyZenD", message)))
