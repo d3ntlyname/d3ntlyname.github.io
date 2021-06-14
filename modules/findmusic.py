@@ -6,7 +6,7 @@ from .. import loader, utils
 class SearchMusicMod(loader.Module): 
     """
 Модуль FindMusic - поиск музыки
-Работает через бота @lybot, @JRmusic_bot и @vkm_bot 
+Работает через бота @lybot, @jrmusic_bot и @vkm_bot 
     """ 
     strings = {"name": "FindMusic"} 
  
