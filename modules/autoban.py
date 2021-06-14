@@ -37,7 +37,7 @@ class AutoBanMod(loader.Module):
                     self.db.set("AutoBan", "users", users)
                     return await message.edit("<b>[AutoBan] Произошла ошибка, повтори команду</b>")
 
-            return await message.edit(f"<b>Список пользователей в автобане:<b>\n\n{msg}")
+            return await message.edit(f"<b>Список пользователей в автобане:</b>\n\n{msg}")
 
         try:
             user = await self.client.get_entity(reply.sender_id if reply else args if not args.isnumeric() else int(args))
