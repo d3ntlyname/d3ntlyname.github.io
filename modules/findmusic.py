@@ -31,7 +31,7 @@ class SearchMusicMod(loader.Module):
             return await message.edit("<b>[FindMusic] Нету аргументов...</b>")  
         try: 
             await message.edit("<b>[FindMusic] Загрузка...</b>") 
-            music = await message.client.inline_query('vkmbot', args) 
+            music = await message.client.inline_query('vkm_bot', args) 
             await message.delete() 
             await message.client.send_file(message.to_id, music[0].result.document, reply_to=reply.id if reply else None) 
         except: return await message.client.send_message(message.chat_id, f"<b>[FindMusic] Музыка с названием <code>{args}</code> не найдена...</b>")
