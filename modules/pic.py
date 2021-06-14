@@ -4,7 +4,7 @@ import random
 from .. import loader, utils 
  
 @loader.tds 
-class SearchMusicMod(loader.Module): 
+class SearchPicMod(loader.Module): 
     """ 
 Модуль SearchPic — поиск фотографий 
     """ 
