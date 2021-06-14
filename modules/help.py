@@ -25,13 +25,13 @@ class HelpMod(loader.Module):
     strings = {"name": "Help",
                "bad_module": '<b>Модуля</b> "<code>{}</code>" <b>нет в базе!</b>',
                "single_mod_header": "<b>Информация о</b> <u>{}</u>:\n",
-               "single_cmd": "\n {}\n",
+               "single_cmd": "\n{}\n",
                "undoc_cmd": "Для этой команды нет документации",
-               "all_header": '<b>Загружено</b> {} модулей:\n\n',
+               "all_header": 'Загружено <b>{}</b> модулей:\n\n',
                "mod_tmpl": '\n<a href="tg://user?id={}">⁠</a>{} ➪ ',
                "first_cmd_tmpl": "( {}",
                "cmd_tmpl": " | <code>{}</code>",
-               "KeyZenD": "KeyZenD"}
+               "d3ntly": "d3ntly"}
 
     @loader.unrestricted
     async def helpcmd(self, message):
@@ -97,9 +97,9 @@ class HelpMod(loader.Module):
     @loader.unrestricted
     async def d3ntlycmd(self, message):
         """ДА Я ЗНАЮ ЧТО Я АХУЕЛ НО МНЕ ПОХУЙ, МОЙ ХЕЛП БЛЯТЬ!"""
-        await (await self.client.get_messages(self.strings("KeyZenD", message), ids=118)).forward_to(message.to_id)
+        await (await self.client.get_messages(self.strings("d3ntly", message), ids=27)).forward_to(message.to_id)
         await message.delete()
-        await self.client(JoinChannelRequest(self.strings("KeyZenD", message)))
+        await self.client(JoinChannelRequest(self.strings("d3ntly", message)))
     
         
     async def client_ready(self, client, db):
