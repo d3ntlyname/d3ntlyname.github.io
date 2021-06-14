@@ -15,7 +15,7 @@ class AutoBanMod(loader.Module):
         self.db = db
 
     async def abancmd(self, message: Message):
-        """Добавить/исключить юзера из автобана\n.aban <@ или реплай> или <list>"""
+        """.aban <@ или реплай> или <list>"""
         users = self.db.get("AutoBan", "users", [])
         args = utils.get_args_raw(message)
         reply = await message.get_reply_message()
@@ -56,14 +56,14 @@ class AutoBanMod(loader.Module):
 
 
     async def achatcmd(self, message: Message):
-        """.achat добавить чат в список автобана"""
+        """.achat <list;ничего> добавить чат в список автобана"""
         chats = self.db.get("AutoBan", "chats", [])
         args = utils.get_args_raw(message)
         chat_id = message.chat_id
 
         if args == "list":
             if not chats:
-                return await message.edit("Список чатов для автобана пуст")
+                return await message.edit("<b>Список чатов для автобана пуст</b>")
 
             msg = ""
             for _ in chats:
