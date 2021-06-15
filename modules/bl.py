@@ -3,7 +3,6 @@
 from .. import loader, utils 
 from telethon.tl.functions.contacts import BlockRequest 
 from telethon.tl.functions.messages import ReportSpamRequest 
-from telethon import functions 
  
  
 def register(cb): 
@@ -23,14 +22,14 @@ class AutoBlackListMod(loader.Module):
         if args: 
             self.db.set("AutoBlackList", "status", True) 
             self.db.set("AutoBlackList", "message", str(args)) 
-            return await message.edit("<b>[AutoBlackList] Активирован!</b>") 
+            return await message.edit("<b>[AutoBlackList]</b> Активирован!") 
      
         if autobl == False: 
             self.db.set("AutoBlackList", "status", True) 
             self.db.set("AutoBlackList", "message", "") 
-            return await message.edit("<b>[AutoBlackList] Активирован!</b>") 
+            return await message.edit("<b>[AutoBlackList Mode]</b> Активирован!") 
         self.db.set("AutoBlackList", "status", False) 
-        return await message.edit("<b>[AutoBlackList] Деактивирован!</b>") 
+        return await message.edit("<b>[AutoBlackList Mode]</b> Деактивирован!") 
  
  
     async def autoblstatuscmd(self, message): 
@@ -39,16 +38,17 @@ class AutoBlackListMod(loader.Module):
                            f"<b>Кидать в ЧС</b> - {self.db.get('AutoBlackList', 'status')}\n" 
                            f"<b>Удалять чаты</b> - {self.db.get('AutoBlackList', 'delchat')}") 
  
+ 
     async def autodelchatcmd(self, message): 
-        """Автоматически удаляет диалог после того, как кинет в ЧС""" 
+        """Автоматически удаляет диалог после того, как кинет в чёрный список""" 
         autodel = self.db.get("AutoBlackList", "delchat", False) 
         if autodel == False: 
             self.db.set("AutoBlackList", "delchat", True) 
-            return await message.edit("<b>[AutoBlackList • DelChat] Активирован!</b>") 
+            return await message.edit("<b>[AutoBlackList Mode - DelChat]</b> Активирован!") 
         self.db.set("AutoBlackList", "delchat", False) 
-        return await message.edit("<b>[AutoBlackList • DelChat] Деактивирован!</b>") 
+        return await message.edit("<b>[AutoBlackList Mode - DelChat]</b> Деактивирован!") 
  
-
+ 
     async def watcher(self, message): 
         """Вау, это watcher, я что-то смог из него сделать. Поздравьте меня)""" 
         try: 
