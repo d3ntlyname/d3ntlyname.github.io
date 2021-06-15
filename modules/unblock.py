@@ -21,5 +21,5 @@ class UnBlockNaxyiMod(loader.Module):
                                                                       last_name=' ', 
                                                                       phone='мобила', 
                                                                       add_phone_privacy_exception=False)) 
-            await message.edit(f"<b>{user.first_name} удален из списка авточс</b>") 
+            await message.edit(f"<b><a href='tg://user?id={user.user_id}'>{user.first_name}</a> удален из списка AutoBlackList</b>") 
         except: return await message.edit("<b>Даун, что-то пошло по пизде</b>")
