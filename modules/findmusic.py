@@ -1,4 +1,4 @@
-# by @dently
+# by @dentlyftg
 
 from .. import loader, utils 
 import random
@@ -6,7 +6,7 @@ import random
 @loader.tds 
 class SearchMusicMod(loader.Module): 
     """
-Модуль FindMusic — поиск музыки
+Модуль FindMusic - поиск музыки
     """ 
     strings = {"name": "FindMusic"} 
  
