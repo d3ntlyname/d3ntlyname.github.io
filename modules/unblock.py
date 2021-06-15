@@ -9,6 +9,7 @@ class UnBlockNaxyiMod(loader.Module):
     strings={"name": "UnBlock"} 
  
     async def unblockcmd(self, message): 
+        """Удалить юзера с списка""" 
         args = utils.get_args_raw(message) 
         reply = await message.get_reply_message() 
         if not reply: 
