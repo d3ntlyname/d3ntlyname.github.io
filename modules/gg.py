@@ -7,11 +7,12 @@ from telethon.tl.functions.messages import ReportSpamRequest
  
 
 @loader.tds 
-class UnBlockNaxhyiMod(loader.Module): 
+class UnBlockNaxyiMod(loader.Module): 
     """Помощь для AutoBlackList""" 
-    strings={"name": "UnBlock2"} 
+    strings={"name": "UnBlock"} 
  
     async def unblockcmd(self, message): 
+        """Удалить юзера с списка"""
         args = utils.get_args_raw(message) 
         reply = await message.get_reply_message() 
         if not reply: 
@@ -28,6 +29,7 @@ class UnBlockNaxhyiMod(loader.Module):
         except: return await message.edit("<b>Даун, что-то пошло по пизде</b>")
 
     async def blockcmd(self, message): 
+        """Добавить юзера в список"""
         args = utils.get_args_raw(message) 
         reply = await message.get_reply_message() 
         if not reply: 
