@@ -39,6 +39,5 @@ class UnBlockNaxyiMod(loader.Module):
         try: 
             await message.client(BlockRequest(user.id)) 
             await message.client(ReportSpamRequest(user.id)) 
-            await message.client(functions.contacts.DeleteContactRequest(id=user.id))
             await message.edit(f"<b><a href='tg://user?id={user.id}'>{user.first_name}</a> добавлен в список AutoBlackList</b>") 
         except: return await message.edit("<b>Даун, что-то пошло по пизде</b>")
