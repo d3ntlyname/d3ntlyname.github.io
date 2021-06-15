@@ -5,7 +5,7 @@ from telethon import functions
  
 @loader.tds 
 class UnBlockNaxyiMod(loader.Module): 
-    """Удалить юзера с списка авточс""" 
+    """Удалить юзера с списка AutoBlackList""" 
     strings={"name": "UnBlock"} 
  
     async def unblockcmd(self, message): 
@@ -21,5 +21,5 @@ class UnBlockNaxyiMod(loader.Module):
                                                                       last_name=' ', 
                                                                       phone='мобила', 
                                                                       add_phone_privacy_exception=False)) 
-            await message.edit(f"<b><a href='tg://user?id={user.user_id}'>{user.first_name}</a> удален из списка AutoBlackList</b>") 
+            await message.edit(f"<b><a href='tg://user?id={user.id}'>{user.first_name}</a> удален из списка AutoBlackList</b>") 
         except: return await message.edit("<b>Даун, что-то пошло по пизде</b>")
