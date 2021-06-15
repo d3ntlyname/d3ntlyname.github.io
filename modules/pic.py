@@ -13,7 +13,7 @@ class SearchPicMod(loader.Module):
     async def piccmd(self, message): 
         """.pic <название>, чтобы найти фотографию по названию""" 
         args = utils.get_args_raw(message) 
-        k = random.randint(1, 5)
+        k = random.randint(0, 10)
         reply = await message.get_reply_message() 
         if not args: 
             return await message.edit("<b>[SearchPic] Нету аргументов</b>")  
