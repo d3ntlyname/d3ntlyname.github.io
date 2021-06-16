@@ -20,7 +20,7 @@ class TextagramMod(loader.Module):
             reply = await message.get_reply_message() 
             chat = "@textagrambot" 
             if not text and not reply: 
-                await message.edit("<b>[Textagram] Нету аргументов") 
+                await message.edit("<b>Пожалуйста, пришлите текст для обработки</b>") 
                 return 
             if text: 
                 async with message.client.conversation(chat) as conv: 
@@ -30,10 +30,10 @@ class TextagramMod(loader.Module):
                         await message.client.delete_dialog(767253642)
                         response = await response 
                     except YouBlockedUserError: 
-                        await message.reply("[Textagram] Убери из ЧС: @textagrambot</b>") 
+                        await message.reply("<b>Сними <a href='tg://user?id=767253642'>Textagram</a> с чс</b>") 
                         return 
                     if not response.text: 
-                        await message.edit("<b>[Textagram] Попробуй ещё раз</b>") 
+                        await message.edit("<b>Попробуй ещё раз</b>") 
                         return 
                     await message.delete() 
                     await message.client.send_message(message.to_id, response.text) 
@@ -45,12 +45,12 @@ class TextagramMod(loader.Module):
                         await message.client.delete_dialog(767253642)
                         response = await response 
                     except YouBlockedUserError: 
-                        await message.reply("<b>[Textagram] Убери из ЧС: @textagrambot</b>") 
+                        await message.reply("<b>Сними <a href='tg://user?id=767253642'>Textagram</a> с чс</b>") 
                         return 
                     if not response.text: 
-                        await message.edit("<b>[Textagram] Попробуй ещё раз</b>") 
+                        await message.edit("<b>Попробуй ещё раз</b>") 
                         return 
                     await message.delete() 
                     await message.client.send_message(message.to_id, response.text) 
         except TimeoutError: 
-            return await message.edit("<b>[Textagram] Неизвестная ошибка</b>")
+            return await message.edit("<b>Неизвестная ошибка</b>")
