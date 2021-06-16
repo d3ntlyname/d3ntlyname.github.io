@@ -112,7 +112,7 @@ class NotesMod(loader.Module):
 			self._db.set("friendly-telegram.modules.notes", "notes", old)
 
 	async def notescmd(self, message):
-		"""List the saved notes"""
+		"""Список сохраненных заметок"""
 		if not self._db.get("friendly-telegram.modules.notes", "notes", {}):
 			await utils.answer(message, self.strings("notes_none", message))
 			return
