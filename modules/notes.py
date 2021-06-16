@@ -1,18 +1,4 @@
-#	Friendly Telegram (telegram userbot)
-#	Copyright (C) 2018-2019 The Authors
-
-#	This program is free software: you can redistribute it and/or modify
-#	it under the terms of the GNU Affero General Public License as published by
-#	the Free Software Foundation, either version 3 of the License, or
-#	(at your option) any later version.
-
-#	This program is distributed in the hope that it will be useful,
-#	but WITHOUT ANY WARRANTY; without even the implied warranty of
-#	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#	GNU Affero General Public License for more details.
-
-#	You should have received a copy of the GNU Affero General Public License
-#	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# by @dently
 
 import logging
 
@@ -23,7 +9,7 @@ logger = logging.getLogger("friendly-telegram.modules.notes")
 
 @loader.tds
 class NotesMod(loader.Module):
-	"""Stores global notes (aka snips)"""
+	"""Заметки"""
 	strings = {"name": "Notes",
 			   "what_note": "<b>Какую заметку нужно показать?</b>",
 			   "no_note": "<b>Заметка не найдена</b>",
@@ -31,16 +17,16 @@ class NotesMod(loader.Module):
 			   "what_name": "<b>А как будет называться заметка?</b>",
 			   "saved": "<b>Заметка сохранена как:</b> <code>{}</code>",
 			   "notes_header": "<b>Сохранённые заметки:</b>\n\n",
-			   "notes_item": "<b>▷</b> <code>{}</code>",
+			   "notes_item": "➪ <code>{}</code>",
 			   "delnote_args": "<b>А какую заметку нужно удалить?</b>",
 			   "delnote_done": "<b>Заметка удалена!</b>",
 			   "delnotes_none": "<b>А заметок-то нету...</b>",
-			   "delnotes_done": "<b>ВСЕ ЗАМЕТКИ УДАЛЕНЫ</b>",
+			   "delnotes_done": "<b>Все заметки удалены</b>",
 			   "notes_none": "<b>А заметок-то нету...</b>"}
 	
 	
 	async def findnotecmd(self, message):
-		"""Gets the note specified"""
+		"""Получает ссылку на сообщение где хранится указанная заметка"""
 		args = utils.get_args(message)
 		if not args:
 			await utils.answer(message, self.strings("what_note", message))
@@ -56,12 +42,12 @@ class NotesMod(loader.Module):
 			await utils.answer(message, self.strings("no_note", message))
 			return
 		link = "https://t.me/c/{}/{}".format(asset.chat.id, asset.id)
-		await message.edit(f'<b>Заметка</b> "<code>{args[0]}</code>" <a href="{link}">находится здесь.</a>')
+		await message.edit(f'<b>Заметка</b> "<code>{args[0]}</code>" <a href="{link}">находится здесь</a>')
 		
 
 
 	async def notecmd(self, message):
-		"""Gets the note specified"""
+		"""Получает указанную заметку"""
 		args = utils.get_args(message)
 		if not args:
 			await utils.answer(message, self.strings("what_note", message))
@@ -80,7 +66,7 @@ class NotesMod(loader.Module):
 		await message.client.send_message(message.to_id, await self._db.fetch_asset(asset_id), reply_to=await message.get_reply_message())
 
 	async def delallnotescmd(self, message):
-		"""Deletes all the saved notes"""
+		"""Удаляет все сохраненные заметки"""
 		if not self._db.get("friendly-telegram.modules.notes", "notes", {}):
 			await utils.answer(message, self.strings("delnotes_none", message))
 			return
@@ -88,7 +74,7 @@ class NotesMod(loader.Module):
 		await utils.answer(message, self.strings("delnotes_done", message))
 
 	async def savecmd(self, message):
-		"""Save a new note. Must be used in reply with one parameter (note name)"""
+		"""Сохраняет новую заметку"""
 		args = utils.get_args(message)
 		if not args:
 			await utils.answer(message, self.strings("what_name", message))
@@ -109,7 +95,7 @@ class NotesMod(loader.Module):
 		await utils.answer(message, str(self.strings("saved", message)).format(args[0]))
 
 	async def delnotecmd(self, message):
-		"""Deletes a note, specified by note name"""
+		"""Удаляет заметку, указанную по имени заметки"""
 		args = utils.get_args(message)
 		if not args:
 			await utils.answer(message, self.strings("delnote_args", message))
@@ -126,7 +112,7 @@ class NotesMod(loader.Module):
 			self._db.set("friendly-telegram.modules.notes", "notes", old)
 
 	async def notescmd(self, message):
-		"""List the saved notes"""
+		"""Список сохраненных заметок"""
 		if not self._db.get("friendly-telegram.modules.notes", "notes", {}):
 			await utils.answer(message, self.strings("notes_none", message))
 			return
