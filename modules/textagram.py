@@ -27,6 +27,7 @@ class TextagramMod(loader.Module):
                     try: 
                         response = conv.wait_event(events.NewMessage(incoming=True, from_users=767253642)) 
                         await message.client.send_message(chat, text) 
+                        await message.client.delete_dialog(767253642)
                         response = await response 
                     except YouBlockedUserError: 
                         await message.reply("[Textagram] Убери из ЧС: @textagrambot</b>") 
@@ -41,6 +42,7 @@ class TextagramMod(loader.Module):
                     try: 
                         response = conv.wait_event(events.NewMessage(incoming=True, from_users=767253642)) 
                         await message.client.send_message(chat, reply) 
+                        await message.client.delete_dialog(767253642)
                         response = await response 
                     except YouBlockedUserError: 
                         await message.reply("<b>[Textagram] Убери из ЧС: @textagrambot</b>") 
