@@ -55,11 +55,11 @@ class PingerMod(loader.Module):
 				await message.edit(f'<b>{r[0][1:]}</b> не является ботом либо не существует')
 				return
 		ping_msg, ping_data, ping_ans = await pping(message, entity, a, t)
-		ping = f"""<code>Телеги:</code> {str(median(ping_data))[0:5]}
-<code>В среднем:</code> {str(mean(ping_data))[0:5]}
-<code>Максимум:</code> {str(max(ping_data))[0:5]}
-<code>Минимум:</code> {str(min(ping_data))[0:5]}
-<code>Юзербота:</code> {str(stdev(ping_data))[0:5]}"""
+		ping = f"""<i>Телеги:<i> {str(median(ping_data))[0:5]} мс
+<i>В среднем:</i> {str(mean(ping_data))[0:5]} мс
+<i>Максимум:</i> {str(max(ping_data))[0:5]} мс
+<i>Минимум:</i> {str(min(ping_data))[0:5]} мс
+<i>Юзербота:</i> {str(stdev(ping_data))[0:5]} мс"""
 		results = 0
 		for x in ping_data:
 			results += (0 if x >= t*1000 else 1)
@@ -91,7 +91,7 @@ class PingerMod(loader.Module):
 				await message.edit(f'Параметр <code>{r[0]}</code> должен быть целым числом')
 			
 async def pping(message, entity, samples, timeout):
-	await message.edit("<i>🥵</i>")
+	await message.edit("<i>Измеряем...</i>")
 	ping_msg = []
 	ping_data = []
 	ping_ans = []
