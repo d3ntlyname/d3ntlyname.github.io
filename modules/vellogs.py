@@ -55,7 +55,7 @@ class PingerMod(loader.Module):
 				await message.edit(f'<b>{r[0][1:]}</b> не является ботом либо не существует')
 				return
 		ping_msg, ping_data, ping_ans = await pping(message, entity, a, t)
-		ping = f"""<i>Телеги:<i> {str(median(ping_data))[0:5]} мс
+		ping = f"""<i>Телеги:</i> {str(median(ping_data))[0:5]} мс
 <i>В среднем:</i> {str(mean(ping_data))[0:5]} мс
 <i>Максимум:</i> {str(max(ping_data))[0:5]} мс
 <i>Минимум:</i> {str(min(ping_data))[0:5]} мс
