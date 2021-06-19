@@ -55,7 +55,7 @@ class PingerMod(loader.Module):
 				await message.edit(f'<b>{r[0][1:]}</b> не является ботом либо не существует')
 				return
 		ping_msg, ping_data, ping_ans = await pping(message, entity, a, t)
-		ping = f"""<i>Телеги:<i> {str(median(ping_data))[0:5]} мс
+		ping = f"""<i>Телеги:</i> {str(median(ping_data))[0:5]} мс
 <i>В среднем:</i> {str(mean(ping_data))[0:5]} мс
 <i>Максимум:</i> {str(max(ping_data))[0:5]} мс
 <i>Минимум:</i> {str(min(ping_data))[0:5]} мс
@@ -65,7 +65,7 @@ class PingerMod(loader.Module):
 			results += (0 if x >= t*1000 else 1)
 		ok = ("DeNTLy" if results == len(ping_data) else f"{results}/{len(ping_data)}")
 		entity = ('' if entity == 'me' else f' <b>{entity[1:]}</b>')
-		await message.edit(f"<b>{ok} ></b>{entity}\n{ping}")
+		await message.edit(f"<b>[{ok}]</b>{entity}\n{ping}")
 		for i in ping_msg:
 			await i.delete()
 		for i in ping_ans:
