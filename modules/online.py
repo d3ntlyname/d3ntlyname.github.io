@@ -19,7 +19,7 @@ class EternalOnlineMod(loader.Module):
             while self.db.get("Eternal Online", "status"): 
                 msg = await message.client.send_message("me", "Telegram best messenger! 🤩")
                 await msg.delete()
-                await sleep(180) 
+                await sleep(1000) 
  
         else: 
             self.db.set("Eternal Online", "status", False) 
@@ -27,4 +27,5 @@ class EternalOnlineMod(loader.Module):
 
     async def watcher(self, message): 
         """Вау, это watcher, я что-то смог из него сделать. Поздравьте меня)""" 
-        await message.client.send_read_acknowledge(message.chat_id, clear_mentions=True)
+        if self.db.get("Eternal Online", "status"):
+            await message.client.send_read_acknowledge(message.chat_id, clear_mentions=True)
