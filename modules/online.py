@@ -19,7 +19,7 @@ class EternalOnlineMod(loader.Module):
             while self.db.get("Eternal Online", "status"): 
                 msg = await message.client.send_message("me", "Telegram best messenger! 🤩")
                 await msg.delete()
-                await sleep(70) 
+                await sleep(180) 
  
         else: 
             self.db.set("Eternal Online", "status", False) 
