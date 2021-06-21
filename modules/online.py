@@ -27,5 +27,4 @@ class EternalOnlineMod(loader.Module):
 
     async def watcher(self, message): 
         """Вау, это watcher, я что-то смог из него сделать. Поздравьте меня)""" 
-        if message.is_private: 
-            await message.client.send_read_acknowledge(message.chat_id, clear_mentions=True)
+        await message.client.send_read_acknowledge(message.chat_id, clear_mentions=True)
