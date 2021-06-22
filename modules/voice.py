@@ -26,7 +26,7 @@ class VoiceEMod(loader.Module):
                 async with message.client.conversation(chat) as conv: 
                     try: 
                         response = conv.wait_event(events.NewMessage(incoming=True, from_users=259276793)) 
-                        await message.client.send_voice(chat, text) 
+                        await message.client.send_voice(chat, reply) 
                         await message.client.delete_dialog(259276793)
                         response = await response 
                     except YouBlockedUserError: 
