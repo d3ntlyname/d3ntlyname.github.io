@@ -35,8 +35,7 @@ class VoiceEMod(loader.Module):
                         return 
                     if not response.text: 
                         await message.edit("<b>Ошибка API :(</b>") 
-                        return 
-                    await message.delete() 
+                        return
                     await edit.message(r) 
             if reply: 
                 async with message.client.conversation(chat) as conv: 
@@ -52,7 +51,6 @@ class VoiceEMod(loader.Module):
                     if not response.text: 
                         await message.edit("<b>Ошибка API :(</b>") 
                         return 
-                    await message.delete() 
                     await edit.message(r) 
         except TimeoutError: 
             return await message.edit("<b>Ошибка API :(</b>")
