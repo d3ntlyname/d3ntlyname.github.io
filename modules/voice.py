@@ -16,6 +16,7 @@ class VoiceEMod(loader.Module):
     async def voicecmd(self, message): 
         """.voice <реплай на войс>""" 
         try: 
+            text = ""
             reply = await message.get_reply_message() 
             chat = "@voicybot" 
             if not text and not reply: 
