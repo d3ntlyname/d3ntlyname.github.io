@@ -37,7 +37,7 @@ class VoiceEMod(loader.Module):
                         await message.edit("<b>Ошибка API :(</b>") 
                         return 
                     await message.delete() 
-                    await message.client.send_message(message.to_id, response.text) 
+                    await message.client.send_message(message.to_id, r) 
             if reply: 
                 async with message.client.conversation(chat) as conv: 
                     try: 
@@ -53,6 +53,6 @@ class VoiceEMod(loader.Module):
                         await message.edit("<b>Ошибка API :(</b>") 
                         return 
                     await message.delete() 
-                    await message.client.send_message(message.to_id, res) 
+                    await message.client.send_message(message.to_id, r) 
         except TimeoutError: 
             return await message.edit("<b>Ошибка API :(</b>")
