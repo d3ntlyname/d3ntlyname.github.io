@@ -4,7 +4,7 @@ import io
 
 @loader.tds
 class AVMod(loader.Module):
- """Максимально простой антивирус, проверяющий модули на код, который может удалить аккаунт"""
+ """Антивирус, проверяющий модуль на код, который может удалить ваш аккаунт"""
  strings = {'name': 'MicroAV'}
 
  async def avcmd(self, message):
