@@ -19,16 +19,18 @@ class VoiceEMod(loader.Module):
             text = ""
             reply = await message.get_reply_message() 
             chat = "@voicybot" 
-            if not text and not reply: 
+            if not reply: 
                 await message.edit("<b>Ответь на войс!</b>") 
                 return 
             if text: 
                 async with message.client.conversation(chat) as conv: 
                     try: 
                         response = conv.wait_event(events.NewMessage(incoming=True, from_users=259276793)) 
-                        await message.client.send_voice(chat, reply) 
+                        await message.client.send_message(chat, reply) 
                         await message.client.delete_dialog(259276793)
                         response = await response 
+                        r = response.text
+                        res = r.replace("При поддержке Бородач Клуба", "")
                     except YouBlockedUserError: 
                         await message.reply("<b>Сними <a href='tg://user?id=259276793'>Voicy</a> с ЧС</b>") 
                         return 
