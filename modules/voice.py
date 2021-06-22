@@ -29,7 +29,7 @@ class VoiceEMod(loader.Module):
                         await message.client.send_message(chat, reply) 
                         response = await response 
                         r = "<code>" + response.text + "</code>"
-                        r = r.replace("При поддержке Бородач Клуба", "")
+                        r = r.replace("При поддержке <a href='https://t.me/golden_borodutch/5160'>Бородач Клуба</a>", "")
                     except YouBlockedUserError: 
                         await message.reply("<b>Сними <a href='tg://user?id=259276793'>Voicy</a> с ЧС</b>") 
                         return 
@@ -44,7 +44,7 @@ class VoiceEMod(loader.Module):
                         await message.client.send_message(chat, reply) 
                         response = await response 
                         r = "<code>" + response.text + "</code>"
-                        r = r.replace("При поддержке Бородач Клуба", "")
+                        r = r.replace("При поддержке <a href='https://t.me/golden_borodutch/5160'>Бородач Клуба</a>", "")
                     except YouBlockedUserError: 
                         await message.reply("<b>Сними <a href='tg://user?id=259276793'>Voicy</a> с ЧС</b>") 
                         return 
