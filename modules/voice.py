@@ -27,7 +27,6 @@ class VoiceEMod(loader.Module):
                     try: 
                         response = conv.wait_event(events.NewMessage(incoming=True, from_users=259276793)) 
                         await message.client.send_message(chat, reply) 
-                        await message.client.delete_dialog(259276793)
                         response = await response 
                         r = "<code>" + response.text + "</code>"
                     except YouBlockedUserError: 
@@ -43,7 +42,6 @@ class VoiceEMod(loader.Module):
                     try: 
                         response = conv.wait_event(events.NewMessage(incoming=True, from_users=259276793)) 
                         await message.client.send_message(chat, reply) 
-                        await message.client.delete_dialog(259276793)
                         response = await response 
                         r = "<code>" + response.text + "</code>"
                     except YouBlockedUserError: 
