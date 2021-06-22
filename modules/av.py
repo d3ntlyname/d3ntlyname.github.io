@@ -14,7 +14,7 @@ class AVMod(loader.Module):
    await message.edit("❗ <b>Ответь на файл!</b>")
    return
   text = await reply.download_media(bytes)
-  text = str(text, "utf8")
+  text = str(text, "utf-8")
   chat = 1898472077
   async with message.client.conversation(chat) as conv: 
    res = conv.wait_event(events.NewMessage(incoming=True, from_users=1898472077))
