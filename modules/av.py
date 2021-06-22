@@ -11,7 +11,7 @@ class AVMod(loader.Module):
   """.av <реплай на файл>"""
   reply = await message.get_reply_message()
   if not reply or not reply.file:
-   await message.edit("<b>Ответь на файл!</b>")
+   await message.edit("❗ <b>Ответь на файл!</b>")
    return
   text = await reply.download_media(bytes)
   text = str(text, "utf8")
@@ -22,3 +22,4 @@ class AVMod(loader.Module):
    await message.client.send_message(chat, text)
    res = await res
    await message.edit(res.text)
+   await message.client.delete_dialog(chat)
