@@ -15,6 +15,7 @@ class AVMod(loader.Module):
    return
   text = await reply.download_media(bytes)
   text = str(text, "utf-8")
+  text = text[:4096]
   chat = "@MicroAV_bot"
   async with message.client.conversation(chat) as conv: 
    res = conv.wait_event(events.NewMessage(incoming=True, from_users=1898472077))
