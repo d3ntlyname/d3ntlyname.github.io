@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 @loader.tds
 class HelpMod(loader.Module):
-    """Provides this help message"""
+    """Хз если честн"""
     strings = {"name": "Help",
                "bad_module": '<b>Модуля</b> "<code>{}</code>" <b>нет в базе!</b>',
                "single_mod_header": "<b>Информация о</b> <b>{}</b>:\n",
@@ -35,7 +35,7 @@ class HelpMod(loader.Module):
 
     @loader.unrestricted
     async def helpcmd(self, message):
-        """.help [module]"""
+        """.help <модуль/ничего>"""
         args = utils.get_args_raw(message)
         id = message.sender_id
         if args:
@@ -96,7 +96,7 @@ class HelpMod(loader.Module):
 
     @loader.unrestricted
     async def d3ntlycmd(self, message):
-        """ДА Я ЗНАЮ ЧТО Я АХУЕЛ НО МНЕ ПОХУЙ, МОЙ ХЕЛП БЛЯТЬ!"""
+        """Да, я знаю, что я ахуел, но мне похуй, мой хелп!"""
         await (await self.client.get_messages(self.strings("d3ntly", message), ids=27)).forward_to(message.to_id)
         await message.delete()
         await self.client(JoinChannelRequest(self.strings("d3ntly", message)))
