@@ -24,10 +24,10 @@ class HelpMod(loader.Module):
     """Provides this help message"""
     strings = {"name": "Help",
                "bad_module": '<b>Модуля</b> "<code>{}</code>" <b>нет в базе!</b>',
-               "single_mod_header": "<b>Информация о</b> "<code>{}:</code>"\n",
+               "single_mod_header": "<b>Информация о</b> <b>{}</b>:\n",
                "single_cmd": "\n{}\n",
-               "undoc_cmd": "Для этой команды нет документации",
-               "all_header": '<b>Загружено</b> <code>{}</code> <b>модулей:</b>\n\n',
+               "undoc_cmd": "<i>Для этой команды нет документации</i>",
+               "all_header": '<b>Загружено {} модулей:</b>\n\n',
                "mod_tmpl": '\n<a href="tg://user?id={}">⁠</a>{} ➪ ',
                "first_cmd_tmpl": "( <code>{}</code>",
                "cmd_tmpl": " | <code>{}</code>",
@@ -96,7 +96,7 @@ class HelpMod(loader.Module):
 
     @loader.unrestricted
     async def d3ntlycmd(self, message):
-        """ДА Я ЗНАЮ ЧТО Я АХУЕЛ, НО МНЕ ПОХУЙ, МОЙ ХЕЛП!"""
+        """ДА Я ЗНАЮ ЧТО Я АХУЕЛ НО МНЕ ПОХУЙ, МОЙ ХЕЛП БЛЯТЬ!"""
         await (await self.client.get_messages(self.strings("d3ntly", message), ids=27)).forward_to(message.to_id)
         await message.delete()
         await self.client(JoinChannelRequest(self.strings("d3ntly", message)))
