@@ -21,8 +21,8 @@ $(function () {
 $(function () {
     $(".typed").typed({
         strings: ["kto eto?", "python developer", "coder", "nedohacker", "hmmm...", "...", "bruh"],
-        typeSpeed: 30,
+        typeSpeed: 40,
         loop: true,
-        cursorChar: " |",
+        cursorChar: "|",
     });
 });
