@@ -21,8 +21,8 @@ $(function () {
 $(function () {
     $(".typed").typed({
         strings: ["c/c++ developer", "nedohacker", "coder", "hmmm...", "...", "bruh"],
-        typeSpeed: 60,
+        typeSpeed: 40,
         loop: true,
-        cursorChar: "❚",
+        cursorChar: "_",
     });
 });
