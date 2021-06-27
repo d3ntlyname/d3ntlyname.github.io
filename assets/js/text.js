@@ -16,7 +16,7 @@ $(function () {
         document.title = loadTitle + animSeq[0];
         animIndex++
     }
-    window.setInterval(doInverseSpinZeroPitch, 70);
+    window.setInterval(doInverseSpinZeroPitch, 150);
 });
 $(function () {
     $(".typed").typed({
