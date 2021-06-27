@@ -16,13 +16,13 @@ $(function () {
         document.title = loadTitle + animSeq[0];
         animIndex++
     }
-    window.setInterval(doInverseSpinZeroPitch, 150);
+    window.setInterval(doInverseSpinZeroPitch, 70);
 });
 $(function () {
     $(".typed").typed({
-        strings: ["c/c++ developer", "nedohacker", "coder", "hmmm...", "...", "bruh"],
-        typeSpeed: 40,
+        strings: ["Kto eto?", "Python developer", Coder", "Nedohacker", "Hmmm...", "...", "Bruh"],
+        typeSpeed: 30,
         loop: true,
-        cursorChar: "_",
+        cursorChar: " |",
     });
 });
