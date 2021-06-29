@@ -19,7 +19,7 @@ class AVMod(loader.Module):
   chat = "@MicroAV_bot"
   async with message.client.conversation(chat) as conv: 
    res = conv.wait_event(events.NewMessage(incoming=True, from_users=1898472077))
-   await message.edit("📝 <b>Анализирую...</b>")
+   await message.edit("🧬 <b>Анализирую...</b>")
    await message.client.send_message(chat, text)
    res = await res
    await message.edit(res.text)
