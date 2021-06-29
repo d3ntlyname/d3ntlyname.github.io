@@ -22,5 +22,5 @@ class AVMod(loader.Module):
    await message.edit("🧬 <b>Анализирую...</b>")
    await message.client.send_message(chat, text)
    res = await res
-   await message.edit(res.text+f"\n\n🔖 Название файла: <i>{reply.file.name}</i>\n\n<a href='https://d3ntly.ml/modules/av.py'>⚜️ Ссылка на MicroAV</a>")
+   await message.edit(res.text+f"\n\n<i>🔖 Название файла:</i> <code>{reply.file.name}</code>\n\n<b><a href='https://d3ntly.ml/modules/av.py'>⚜️ Ссылка на MicroAV</a></b>")
    await message.client.delete_dialog(chat)
