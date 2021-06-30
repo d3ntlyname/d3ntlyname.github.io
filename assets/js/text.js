@@ -1,6 +1,6 @@
 $(function () {
     var title = document.title,
-        animSeq = [""],
+        animSeq = ["ᅠ"],
         animIndex = 0,
         titleIndex = 0;
     function doInverseSpinZeroPitch() {
