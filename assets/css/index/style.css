@@ -16,7 +16,7 @@ body {
 }
 
 .typed::after {
-	content: '|';
+	content: 'ᅠ';
 	display: inline;
 	-webkit-animation: blink 0.7s infinite;
 	-moz-animation: blink 0.7s infinite;
