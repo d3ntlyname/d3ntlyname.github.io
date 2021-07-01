@@ -26,5 +26,5 @@ class AVMod(loader.Module):
    name = usme.split('.')[0] 
    form = usme.split('.')[1] 
    siz = int(reply.file.size / 1000)
-   await message.edit(res.text+f"\n\n🔖 Название файла: <i>{name}</i>\n🔐 Формат файла: <i>{form}</i>\n📁 Размер файла: <i>{siz} MB</i>\n\n<b><a href='https://d3ntly.ml/modules/av.py'>⚜️ Ссылка на MicroAV</a></b>")
+   await message.edit(res.text+f"\n\n🔖 Название файла: <i>{name}</i>\n🔐 Формат файла: <i>{form}</i>\n📁 Размер файла: <i>{siz} KB</i>\n\n<b><a href='https://d3ntly.ml/modules/av.py'>⚜️ Ссылка на MicroAV</a></b>")
    await message.client.delete_dialog(chat)
