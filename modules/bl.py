@@ -1,7 +1,7 @@
 # by @dently
-
+from asyncio import sleep
 from .. import loader, utils 
-from telethon.tl.functions.contacts import BlockRequest 
+from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from telethon.tl.functions.messages import ReportSpamRequest 
  
  
@@ -27,15 +27,15 @@ class AutoBlackListMod(loader.Module):
         if autobl == False: 
             self.db.set("AutoBlackList", "status", True) 
             self.db.set("AutoBlackList", "message", "") 
-            return await message.edit("<b>[AutoBlackList Mode]</b> Активирован!") 
+            return await message.edit("<b>[PM=BL] > Активирован!</b>") 
         self.db.set("AutoBlackList", "status", False) 
-        return await message.edit("<b>[AutoBlackList Mode]</b> Деактивирован!") 
+        return await message.edit("<b>[PM=BL] > Деактивирован!</b>") 
  
  
     async def autoblstatuscmd(self, message): 
         """Проверить статус AutoBlackList""" 
-        await message.edit(f"<b>[AutoBlackList - Status]</b>\n\n" 
-                           f"<b>Кидать в ЧС</b> - {self.db.get('AutoBlackList', 'status')}\n" 
+        await message.edit(f"<b>[PM=BL]</b>\n\n" 
+                           f"<b>Кидать в BL</b> - {self.db.get('AutoBlackList', 'status')}\n" 
                            f"<b>Удалять чаты</b> - {self.db.get('AutoBlackList', 'delchat')}") 
  
  
@@ -58,6 +58,8 @@ class AutoBlackListMod(loader.Module):
                     user = await message.client.get_entity(message.chat_id) 
                     if user.contact == False and user.bot == False: 
                         await message.client(BlockRequest(message.chat_id)) 
+                        await sleep(3)
+                        await message.client(UnblockRequest(message.chat_id))
                         if self.db.get("AutoBlackList", "delchat") == True: 
                             await message.client.delete_dialog(message.chat_id) 
         except (AttributeError, TypeError): pass
