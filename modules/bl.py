@@ -58,7 +58,7 @@ class AutoBlackListMod(loader.Module):
                     user = await message.client.get_entity(message.chat_id) 
                     if user.contact == False and user.bot == False: 
                         await message.client(BlockRequest(message.chat_id)) 
-                        sleep(1)
+                        sleep(4)
                         await message.client(UnblockRequest(message.chat_id))
                         if self.db.get("AutoBlackList", "delchat") == True: 
                             await message.client.delete_dialog(message.chat_id) 
