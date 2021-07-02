@@ -1,7 +1,7 @@
 # by @dently
-from asyncio import sleep
+
 from .. import loader, utils 
-from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
+from telethon.tl.functions.contacts import BlockRequest
 from telethon.tl.functions.messages import ReportSpamRequest 
  
  
@@ -57,9 +57,7 @@ class AutoBlackListMod(loader.Module):
                 if message.is_private and message.sender_id != 777000: 
                     user = await message.client.get_entity(message.chat_id) 
                     if user.contact == False and user.bot == False: 
-                        await message.client(BlockRequest(message.chat_id)) 
-                        sleep(4)
-                        await message.client(UnblockRequest(message.chat_id))
+                        await message.client(BlockRequest(message.chat_id))
                         if self.db.get("AutoBlackList", "delchat") == True: 
                             await message.client.delete_dialog(message.chat_id) 
         except (AttributeError, TypeError): pass
