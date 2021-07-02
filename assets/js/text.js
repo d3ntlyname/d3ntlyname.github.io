@@ -20,8 +20,8 @@ $(function () {
 });
 $(function () {
     $(".typed").typed({
-        strings: ["kto eto?", "python developer", "nedocoder", "c# beginner", "typehacker", "music lover...", "hmmm", "bruh"],
-        typeSpeed: 42,
+        strings: ["Kto eto?", "Python developer", "Nedocoder", "C# beginner", "Typehacker", "Music lover...", "Hmmm", "Bruh"],
+        typeSpeed: 50,
         loop: true,
         cursorChar: "_",
     });
