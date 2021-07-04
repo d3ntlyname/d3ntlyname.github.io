@@ -1,11 +1,11 @@
-# by @dently
+# by @dentlyftg
 
 from .. import loader, utils
 
 @loader.tds
 class MyRepMod(loader.Module):
     """Модуль с вашей репутацией"""
-    strings={"name":"Репутация"}
+    strings={"name": "Репутация"}
 
     async def client_ready(self, message, db):
         self.db=db
@@ -22,7 +22,7 @@ class MyRepMod(loader.Module):
             await message.edit(f"<b>Режим репутации выключен!</b>")
 
     async def myrepcmd(self, message):
-        """Посмотреть свою репутацию. Используй: .myrep <clear/ничего>"""
+        """.myrep <clear/ничего>"""
         args = utils.get_args_raw(message)
         if args == "clear":
             self.db.set("MyRep", "my_repa", 0)
@@ -33,7 +33,7 @@ class MyRepMod(loader.Module):
             msg_repstatus = "<i>Включен</i>"
         else:
             msg_repstatus = "<i>Выключен</i>"
-        await message.edit(f"</b> \n<b>Статус режима: </b>{msg_repstatus}<b>\nКол-во: <i>{myrep}</i></b>")
+        await message.edit(f"</b> \n<b>Статус режима: {msg_repstatus}<b>\nКол-во: <i>{myrep}</i></b>")
 
     async def watcher(self, message):
         try:
@@ -41,11 +41,11 @@ class MyRepMod(loader.Module):
             repstatus = self.db.get("MyRep", "repstatus")
             if message.mentioned:
                 if repstatus is not False:
-                    if message.text == "+":
+                    if message.text == "+" or message.text == 'спс':
                         number += 1
                         self.db.set("MyRep", "my_repa", number)
                         await message.reply(f"<b>Ты повысил мою репутацию :)\nНовое значение: {number}</b>")
-                    if message.text == "+2":
+                    if message.text == "++":
                         number += 2
                         self.db.set("MyRep", "my_repa", number)
                         await message.reply(f"<b>Ты повысил мою репутацию :)\nНовое значение: {number}</b>")
