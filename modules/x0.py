@@ -37,5 +37,5 @@ class X0atMod(loader.Module):
    await message.edit("<b>Ошибка соединения :(</b>") 
    return 
   url = x0at.text 
-  xz = f"<a href="{url}">URL:</a> <code>{url}</code>"
+  xz = f"<a href='{url}'>URL:</a> <code>{url}</code>"
   await message.edit(xz)
