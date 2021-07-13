@@ -24,6 +24,6 @@ $(function () {
         strings: ["Kto eto?", "Python developer", "Nedocoder", "C# beginner", "Typehacker", "Music lover...", "Hmmm", "Bruh"],
         typeSpeed: 50,
         loop: true,
-        cursorChar: "_",
+        cursorChar: ["/", "$", "\\", "|", "$"],
     });
 });
