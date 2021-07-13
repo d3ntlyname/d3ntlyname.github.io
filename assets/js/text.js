@@ -1,6 +1,6 @@
 $(function () {
     var title = document.title
-        , animSeq = ["/", "$", "\\", "|", "$"]
+        , animSeq = ["/", "/", "\\", "|", "/"]
         , animIndex = 0
         , titleIndex = 0;
 
@@ -21,9 +21,9 @@ $(function () {
 });
 $(function () {
     $(".typed").typed({
-        strings: ["Kto эto?", "Python developer", "Nedocoder", "C# beginner", "Typehacker", "Music lover...", "Hmmm", "Bruh"],
+        strings: ["Kto eto?", "Python developer", "Nedocoder", "C# beginner", "Typehacker", "Music lover...", "Hmmm", "Bruh"],
         typeSpeed: 50,
         loop: true,
-        cursorChar: ["/"],
+        cursorChar: ["|"],
     });
 });
