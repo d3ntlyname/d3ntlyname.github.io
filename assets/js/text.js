@@ -22,8 +22,8 @@ $(function () {
 $(function () {
     $(".typed").typed({
         strings: ["python developer", "(nedo)coder", "c# beginner", "(type)hacker", "music lover...", "hmmm...", "yes, i\'m gay", "no, i\'m legend\*", "shell script¿", "bored :c", "bruh", "creator dethree", "easy deanon"],
-        typeSpeed: 40,
+        typeSpeed: 35,
         loop: true,
-        cursorChar: ["|"],
+        cursorChar: ["❚"],
     });
 });
