@@ -24,7 +24,7 @@ $(function () {
         strings: ["python developer", "(nedo)coder", "c# beginner", "(type)hacker", "music lover...", "hmmm...", "yes, i\'m gay", "no, i\'m legend\*", "shell script¿", "bruh", 'i love the taste', 'of blood more', 'than meth', 'i absolutely give', 'a fuck what your', 'rh factor is', 'my love', 'languishes in', 'this short word', 'blood', 'your blood', 'streak is', 'essentially', 'your deadline'],
         typeSpeed: 35,
         backSpeed: 0,
-        cursorChar: ['❚'],
+        cursorChar: [' ❚'],
         smartBackspace: true,
         fadeOut: true,
         loop: true,
