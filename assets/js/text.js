@@ -21,10 +21,10 @@ $(function () {
 });
 $(function () {
     $(".typed").typed({
-        strings: ["python developer", "(nedo)coder", "c# beginner", "(type)hacker", "music lover...", "hmmm...", "rm -rf \/\*",
+        strings: ["python developer", "(nedo)coder", "c# beginner", "music lover...", "hmmm...", "rm -rf \/\*",
         typeSpeed: 35,
         backSpeed: 0,
-        cursorChar: [' ❚'],
+        cursorChar: ['❚'],
         smartBackspace: true,
         fadeOut: true,
         loop: true,
